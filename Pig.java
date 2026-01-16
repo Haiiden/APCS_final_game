@@ -33,7 +33,6 @@ public class Pig extends Animal{
   /*bite
   */
   public String moveTwo(Animal other){
-      setSpecial(getSpecial()-8);
       int damage = (int)(Math.random()*5+Math.random()*5)+3;
       other.applyDamage((damage + (damage * mudLevel * 0.2)) * this.attack);
       int prevMud = this.mudLevel;
