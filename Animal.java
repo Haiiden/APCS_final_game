@@ -3,7 +3,8 @@ public abstract class Animal{
   private int hp;
   private int speed;
   private int attack;
-  private boolean inFlight;
+  private boolean inFlight = false;
+
 
   public Animal(String name){
     this.name = name;
