@@ -47,6 +47,10 @@ public abstract class Animal{
     this.hp = newHP;
   }
 
+  public void applyDamage(int amount){
+    this.hp -= amount;
+  }
+
 
 
   public abstract String moveOne(Animal opp);
