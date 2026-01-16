@@ -12,16 +12,12 @@ public class Pig extends Animal{
   public Pig(){
     this("Pig");
   }
-  
-  public String getSpecialName(){
-    return "Mud Level";
-  }
 
-  public int getSpecial(){
+  public int getMud(){
     return mudLevel;
   }
   
-  public void setSpecial(int n){
+  private void setMud(int n){
     mudLevel = n;
   }
 
