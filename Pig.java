@@ -3,9 +3,9 @@ public class Pig extends Animal{
 
   public Pig(String name){
     super(name);
-    this.hp = 15;
-    this.speed = 5;
-    this.attack = 1.2;
+    setHp(15);
+    setSpeed(5);
+    setAttack(1.2);
     this.mudLevel = 1;
   }
 
