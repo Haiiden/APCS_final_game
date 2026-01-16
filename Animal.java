@@ -3,6 +3,7 @@ public abstract class Animal{
   private int hp;
   private int speed;
   private int attack;
+  private boolean inFlight;
 
   public Animal(String name){
     this.name = name;
@@ -48,7 +49,13 @@ public abstract class Animal{
   }
 
   public void applyDamage(int amount){
-    this.hp -= amount;
+    if (inFlight == true) {
+      System.out.println("Unsuccessful attack, opponent is in flight");
+      this.inFlight = false;
+    }
+    else {
+      this.hp -= amount;
+    }
   }
 
 
