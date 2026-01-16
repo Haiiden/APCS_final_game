@@ -3,11 +3,12 @@ public abstract class Animal{
   private int hp;
   private int speed;
   private int attack;
-  private boolean inFlight = false;
+  private boolean inFlight;
 
 
   public Animal(String name){
     this.name = name;
+    this.inFlight = false;
   }
 
   public Adventurer(String name, int hp, int speed, int attack){
