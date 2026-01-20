@@ -1,36 +1,43 @@
 public class Chicken extends Animal{
-  public Chicken (name){
+  public Chicken(String name){
     super(name);
     sethp(5);
     setSpeed(20);
-    setAttack(1.1);
+    setAttack(1);
   }
 
   public Chicken() {
     this("Chicken");
-  ]
+  }
 
   /*peck*/
+  @Override
   public String moveOne(Animal other){
-    int damage = (int)(Math.random()*6)+2;
-    other.applyDamage((damage * this.attack);
-    return this + " pecked "+ other + " and dealt "+ damage +
-    " points of damage.";
+    int damage = Animal.randomRoll(0,5);
+    other.applyDamage(damage * getAttack());
+    return this + " pecked " + other + " and dealt " + damage + " points of damage.";
   }
-  /*shoot egg
-  */
+
+
+  /*shoot egg*/
+  @Override
   public String moveTwo(Animal other){
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
-      other.applyDamage((damage + (damage * mudLevel * 0.2)) * this.attack);
-      int prevMud = this.mudLevel;
-      this.setSpecial(prevMud + 1);
-      return this + " bit "+other+" dealing "+ damage +" points of damage.";
+      int damage = Animal.randomRoll(0,10) + 3;
+      other.applyDamage(damage * getAttack());
+      if(Math.random() < 0.500){
+        return this + " shot an egg at " + other + " dealing " + damage + " points of damage.";
+      }else{
+        other.applyDamage(2);
+        return this + "'s egg broke on " + other + "'s face, dealing " + damage + " and 2 extra points of damage.";
+      }
   }
   
   /*eat*/
-  public String moveThree(){
-    int hp = 5;
-    sethp(gethp()+hp);
-    return this+" eats to restore "+ hp +" but mud level reset";
+  @Override
+  public String moveThree(Animal opp){
+    sethp(gethp() + 5);
+    flight();
+    return this + " takes flight and restores 5 hp";
   }
+
 }

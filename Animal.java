@@ -11,7 +11,7 @@ public abstract class Animal{
     this.inFlight = false;
   }
 
-  public Adventurer(String name, int hp, int speed, int attack){
+  public Animal(String name, int hp, int speed, int attack){
     this.name = name;
     this.hp = hp;
     this.speed = speed;
@@ -19,7 +19,7 @@ public abstract class Animal{
   }
 
   public String toString(){
-    return this.name + this.hp;
+    return this.name + "[" + this.hp + "]";
   }
 
   public int gethp(){
@@ -29,7 +29,7 @@ public abstract class Animal{
     this.hp = newHP;
   }
 
-  public int getSpeed(){
+  public double getSpeed(){
     return speed;
   }
   public void setSpeed(int newSpeed){
@@ -43,13 +43,9 @@ public abstract class Animal{
     this.attack = newAttack;
   }
 
-  public int gethp(){
-    return hp;
+  public void flight(){
+    this.inFlight = true;
   }
-  public void sethp(int newHP){
-    this.hp = newHP;
-  }
-
   public void applyDamage(int amount){
     if (inFlight == true) {
       System.out.println("Unsuccessful attack, opponent is in flight");
@@ -60,9 +56,12 @@ public abstract class Animal{
     }
   }
 
+  public static int randomRoll(int min, int max){
+    return (int)(Math.random() * (max - min + 1) );
+  }
 
 
-  public abstract String moveOne(Animal opp);
-  public abstract String moveTwo(Animal opp);
-  public abstract String moveThree(Animal opp);
+  public abstract String moveOne(Animal other);
+  public abstract String moveTwo(Animal other);
+  public abstract String moveThree(Animal other);
 }
