@@ -29,7 +29,7 @@ public abstract class Animal{
     this.hp = newHP;
   }
 
-  public double getSpeed(){
+  public int getSpeed(){
     return speed;
   }
   public void setSpeed(int newSpeed){
@@ -43,13 +43,18 @@ public abstract class Animal{
     this.attack = newAttack;
   }
 
-  public void flight(){
-    this.inFlight = true;
+  public boolean getflight(){
+    return inFlight;
   }
-  public void applyDamage(int amount){
-    if (inFlight == true) {
+
+  public void setflight(boolean value){
+    this.inFlight = value;
+  }
+
+  public void applyDamage(int amount, Animal other){
+    if (other.inFlight == true) {
       System.out.println("Unsuccessful attack, opponent is in flight");
-      this.inFlight = false;
+      other.setflight(false);
     }
     else {
       this.hp -= amount;
@@ -60,7 +65,15 @@ public abstract class Animal{
     return (int)(Math.random() * (max - min + 1) );
   }
 
+  public String move(int move, Animal other){
+    if(move == 1){return moveOne(other);}
+    if(move == 2){return moveTwo(other);}
+    if(move == 3){return moveThree(other);}
+    return "invalid input";
+  }
+  
 
+  public abstract String moveList();
   public abstract String moveOne(Animal other);
   public abstract String moveTwo(Animal other);
   public abstract String moveThree(Animal other);
