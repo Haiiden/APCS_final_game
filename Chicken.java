@@ -4,6 +4,7 @@ public class Chicken extends Animal{
     sethp(5);
     setSpeed(10);
     setAttack(1);
+    setflight(false);
   }
 
   public Chicken() {

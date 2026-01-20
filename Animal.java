@@ -8,7 +8,6 @@ public abstract class Animal{
 
   public Animal(String name){
     this.name = name;
-    this.inFlight = false;
   }
 
   public Animal(String name, int hp, int speed, int attack){
@@ -16,6 +15,7 @@ public abstract class Animal{
     this.hp = hp;
     this.speed = speed;
     this.attack = attack;
+    this.inFlight = false;
   }
 
   public String toString(){
@@ -52,9 +52,9 @@ public abstract class Animal{
   }
 
   public void applyDamage(int amount, Animal other){
-    if (other.inFlight == true) {
-      System.out.println("Unsuccessful attack, opponent is in flight");
-      other.setflight(false);
+    if (this.inFlight == true) {
+      System.out.println("Unsuccessful attack, opponent is in flight. Ignore the following message.");
+      this.setflight(false);
     }
     else {
       this.hp -= amount;
@@ -69,7 +69,7 @@ public abstract class Animal{
     if(move == 1){return moveOne(other);}
     if(move == 2){return moveTwo(other);}
     if(move == 3){return moveThree(other);}
-    return "invalid input";
+    return "invalid input, your turn is skipped.";
   }
   
 
